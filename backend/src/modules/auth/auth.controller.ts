@@ -1,0 +1,16 @@
+import { Controller, Post } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+
+@ApiTags('auth')
+@Controller('auth')
+export class AuthController {
+  @Post('login')
+  login() {
+    return { message: 'Login endpoint ready' };
+  }
+
+  @Post('register')
+  register() {
+    return { message: 'Register endpoint ready' };
+  }
+}

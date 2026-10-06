@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String    @id @default(cuid())
+  email           String    @unique
+  phone           String?   @unique
+  passwordHash    String?
+  firstName       String?
+  lastName        String?
+  username        String?   @unique
+  gender          String?
+  birthDate       DateTime?
+  avatarUrl       String?
+  bio             String?
+  countryCode     String?
+  city            String?
+  latitude        Float?
+  longitude       Float?
+  isVerified      Boolean   @default(false)
+  isDeleted       Boolean   @default(false)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([email])
+  @@index([username])
+  @@index([city])
+  @@index([latitude, longitude])
+}

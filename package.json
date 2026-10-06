@@ -1,0 +1,19 @@
+{
+  "name": "hume-mono",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "mobile"
+  ],
+  "scripts": {
+    "backend:install": "cd backend && npm install",
+    "backend:build": "cd backend && npm run build",
+    "backend:test": "cd backend && npm run test",
+    "backend:lint": "cd backend && npm run lint",
+    "mobile:get": "cd mobile && flutter pub get",
+    "mobile:analyze": "cd mobile && flutter analyze",
+    "mobile:test": "cd mobile && flutter test",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down"
+  }
+}
